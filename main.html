@@ -35,7 +35,23 @@
   </div>
 
 <script>
-//Your code goes here 
+let c= document.getElementsByClassName("item")
+let drag=null
+let f = document.getElementsByClassName('items')[0]
+f.addEventListener('dragover',(event)=>{
+event.preventDefault()
+})
+f.addEventListener('drop',(event)=>{
+event.preventDefault()
+console.log(event.target)
+console.log(drag)
+f.removeChild(drag)
+event.target.after(drag)
+})
+for(let i=0;i<c.length;i++){
+    c[i].setAttribute("draggable", "true");
+    c[i].addEventListener("dragstart",(event)=> drag=event.target)
+}
 </script>
 
   </body>
